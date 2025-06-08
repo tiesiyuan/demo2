@@ -1,0 +1,141 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://pic.rmb.bdstatic.com/bjh/news/daa4cbaa1e84f5d7e6aefeb4ea4659615134.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        .title {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            font-size: 88px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            margin-top: 80px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-group input:focus {
+            border-color: #007BFF;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">
+        桩基分类识别系统
+    </div>
+
+    <div class="login-container">
+        <h2>登录</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+            </div>
+            <div class="input-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" placeholder="请输入密码" required>
+            </div>
+            <button type="submit" class="btn">登录</button>
+        </form>
+        <p class="error-message" id="errorMessage"></p>
+        <div class="footer">
+            <p>还没有账号? <a href="#">注册</a></p>
+        </div>
+    </div>
+
+    <script>
+        // 登录验证
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // 防止表单提交
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("errorMessage");
+
+            // 检查用户名和密码
+            if (username === "admin" && password === "123456") {
+                // 成功登录后跳转到指定页面
+                window.location.href = "http://tiesiyuan.github.io/demo-1/";
+            } else {
+                // 显示错误信息
+                errorMessage.textContent = "用户名或密码错误，请重新输入。";
+            }
+        });
+    </script>
+
+</body>
+</html>
